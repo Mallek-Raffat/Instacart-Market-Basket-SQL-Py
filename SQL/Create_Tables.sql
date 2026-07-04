@@ -48,8 +48,13 @@ CREATE TABLE order_products_prior (
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     add_to_cart_order SMALLINT NOT NULL,
-    reordered BIT NOT NULL
+    reordered int NOT NULL
 );
+use Instacart
+go
+ALTER TABLE order_products_prior
+ADD CONSTRAINT PK_order_products_prior
+PRIMARY KEY CLUSTERED (order_id, product_id);
 
 -- ==========================
 -- Order Products Train
