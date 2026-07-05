@@ -123,10 +123,10 @@ JOIN aisle_features af
     ON af.aisle_id = p.aisle_id;
 
 
+use Instacart
+go
 
-
-CREATE VIEW reordered_classification_dataset_sample
-AS
+CREATE VIEW reordered_classification_dataset_sample AS
 
 SELECT *
 FROM reordered_classification_dataset
@@ -135,4 +135,5 @@ WHERE order_id IN
     SELECT TOP (50000) order_id
     FROM orders
     ORDER BY NEWID()
-);
+)
+AND days_since_prior_order IS NOT NULL;
