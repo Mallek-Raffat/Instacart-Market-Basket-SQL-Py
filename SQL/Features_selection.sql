@@ -122,3 +122,17 @@ JOIN department_features df
 JOIN aisle_features af
     ON af.aisle_id = p.aisle_id;
 
+
+
+
+CREATE VIEW reordered_classification_dataset_sample
+AS
+
+SELECT *
+FROM reordered_classification_dataset
+WHERE order_id IN
+(
+    SELECT TOP (50000) order_id
+    FROM orders
+    ORDER BY NEWID()
+);
