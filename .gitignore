@@ -17,3 +17,5 @@ parts/
 dist/
 var/
 *.csv
+catboost_info/
+.vscode/
