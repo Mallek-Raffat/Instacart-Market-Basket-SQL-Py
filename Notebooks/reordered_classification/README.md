@@ -19,9 +19,8 @@ The goal of this project is to build a **binary classification model** that pred
 # 📂 Dataset
 
 **Dataset Source**
-
-https://www.kaggle.com/competitions/instacart-market-basket-analysis/data
-
+[
+[https://www.kaggle.com/instacart-market-basket-analysis]](https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis)
 The project uses the following tables:
 
 - orders
