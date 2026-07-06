@@ -220,4 +220,4 @@ LinkedIn: *(Add your LinkedIn profile here if available)*
 
 This project uses the **Instacart Market Basket Analysis** dataset provided by Instacart through Kaggle.
 
-https://www.kaggle.com/competitions/instacart-market-basket-analysis
+https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis
