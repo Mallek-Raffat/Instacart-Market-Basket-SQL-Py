@@ -137,3 +137,53 @@ WHERE order_id IN
     ORDER BY NEWID()
 )
 AND days_since_prior_order IS NOT NULL;
+
+CREATE VIEW Customer_segmentation_dataset AS
+
+WITH selected_users AS
+(
+    SELECT TOP (5000)
+        user_id
+    FROM orders
+    GROUP BY user_id
+    ORDER BY NEWID()
+)
+
+SELECT
+    o.user_id,
+    o.order_id,
+    p.product_id,
+
+    o.order_number,
+    o.order_dow,
+    o.order_hour_of_day,
+    o.days_since_prior_order,
+
+    opp.add_to_cart_order,
+    opp.reordered,
+
+    p.product_name,
+    d.department,
+    a.aisle
+
+FROM selected_users su
+
+JOIN orders o
+    ON su.user_id = o.user_id
+
+JOIN order_products_prior opp
+    ON o.order_id = opp.order_id
+
+JOIN products p
+    ON p.product_id = opp.product_id
+
+JOIN departments d
+    ON d.department_id = p.department_id
+
+JOIN aisles a
+    ON a.aisle_id = p.aisle_id
+
+WHERE o.days_since_prior_order IS NOT NULL;
+
+select *
+from Customer_segmentation_dataset
